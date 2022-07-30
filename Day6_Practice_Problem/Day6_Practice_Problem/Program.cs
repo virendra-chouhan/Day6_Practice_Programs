@@ -6,18 +6,27 @@ namespace Day6_Practice_Problem
     {
         static void Main(string[] args)
         {
-            int n1 = 0, n2 = 1, n3, i, number;
-            Console.Write("Enter the number of elements: ");
+            int number, sum = 0, n;
+            Console.Write("enter the Number");
             number = int.Parse(Console.ReadLine());
-            Console.Write(n1 + " " + n2 + " "); //printing 0 and 1    
-            for (i = 2; i < number; ++i)
+            n = number;
+            for (int i = 1; i < number; i++)
             {
-                n3 = n1 + n2;
-                Console.Write(n3 + " ");
-                n1 = n2;
-                n2 = n3;
+                if (number % i == 0)
+                {
+                    sum = sum + i;
+                }
             }
-        }
+            if (sum == n)
+            {
+                Console.WriteLine("\n Entered number is a perfect number");
+                
+            }
+            else
+            {
+                Console.WriteLine("\n Entered number is not a perfect number");
+                
+            }
 
     }
 }
