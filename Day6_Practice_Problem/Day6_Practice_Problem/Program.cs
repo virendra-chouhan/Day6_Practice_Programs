@@ -6,27 +6,17 @@ namespace Day6_Practice_Problem
     {
         static void Main(string[] args)
         {
-            int number, sum = 0, n;
-            Console.Write("enter the Number");
-            number = int.Parse(Console.ReadLine());
-            n = number;
-            for (int i = 1; i < number; i++)
+            int num, reverse = 0;
+            Console.WriteLine("Enter a Number : ");
+            num = int.Parse(Console.ReadLine());
+            while (num != 0)
             {
-                if (number % i == 0)
-                {
-                    sum = sum + i;
-                }
+                reverse = reverse * 10;
+                reverse = reverse + num % 10;
+                num = num / 10;
             }
-            if (sum == n)
-            {
-                Console.WriteLine("\n Entered number is a perfect number");
-                
-            }
-            else
-            {
-                Console.WriteLine("\n Entered number is not a perfect number");
-                
-            }
+            Console.WriteLine("Reverse of Entered Number is : " + reverse);
+            
 
-    }
+        }
 }
