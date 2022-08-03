@@ -6,11 +6,17 @@ namespace Day6_Practice_Problem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter the Principal Loan amount: ");
+            double p = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the Years: ");
+            double y = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the percent interest compounded: ");
+            double R = Convert.ToInt32(Console.ReadLine());
 
-            DateTime dt = new DateTime(2022, 7, 31);
-            Console.WriteLine("Is Thursday the day of the week for {0:d}?: {1}",
-                               dt, dt.DayOfWeek == DayOfWeek.Thursday);
-            Console.WriteLine("The day of the week for {0:d} is {1}.", dt, dt.DayOfWeek);
+            double n = 12 * y;
+            double r = R / (12 * 100);
+            double payment = p * r / (1 - Math.Pow((1 + r), -n));
+            Console.WriteLine(payment + "is monthly payment");
         }
 
     }
