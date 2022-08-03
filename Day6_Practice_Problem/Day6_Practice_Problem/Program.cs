@@ -4,19 +4,30 @@ namespace Day6_Practice_Problem
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the Principal Loan amount: ");
-            double p = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the Years: ");
-            double y = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the percent interest compounded: ");
-            double R = Convert.ToInt32(Console.ReadLine());
+            int[] notes = { 1000, 500, 100, 50, 20, 10, 5, 2, 1 };
+            int[] arr = new int[9];
+            Console.WriteLine("Enter the amount: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
 
-            double n = 12 * y;
-            double r = R / (12 * 100);
-            double payment = p * r / (1 - Math.Pow((1 + r), -n));
-            Console.WriteLine(payment + "is monthly payment");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (amount >= notes[i])
+                {
+                    arr[i] = amount / notes[i];
+                    amount = amount - (arr[i] * notes[i]);
+                }
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] != 0)
+                {
+                    Console.WriteLine(notes[i] + ":" + arr[i]);
+                }
+            }
         }
 
     }
